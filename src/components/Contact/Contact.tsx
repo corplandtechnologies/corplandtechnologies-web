@@ -93,7 +93,7 @@ export default function Contact() {
           }}>
           <a
             target="_blank"
-            href="https://www.linkedin.com/in/gianlucajahn/"
+            href="https://www.linkedin.com/in/corpland/"
             onMouseDown={playAudio}
             onMouseUp={playAudio}>
             <button
