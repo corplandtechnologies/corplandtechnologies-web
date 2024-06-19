@@ -32,7 +32,9 @@ export default function ContextMenu() {
   };
 
   const copyURL = () => {
-    navigator.clipboard.writeText("https://corplandtechnologies-web.onrender.com/");
+    navigator.clipboard.writeText(
+      "https://corplandtechnologies-web.onrender.com/"
+    );
     toast(state.language === "english" ? "Link kopiert!" : "Copied URL!", {
       icon: "🌐",
       position: "top-left",
@@ -56,7 +58,15 @@ export default function ContextMenu() {
         state.darkmode ? "dark-context-menu" : "light-context-menu"
       }`}
       id="context-menu">
-     
+      <a
+        target="_blank"
+        href="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk"
+        onMouseDown={playAudio}
+        onMouseUp={playAudio}>
+        <div className="context-menu-item">
+          <h3>Download</h3>
+        </div>
+      </a>
 
       <a
         target="_blank"
