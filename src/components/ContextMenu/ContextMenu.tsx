@@ -13,7 +13,7 @@ export default function ContextMenu() {
   const [state, dispatch] = useContext(store);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("gianluca.jahn98@gmail.com");
+    navigator.clipboard.writeText("corplandtechnologies@gmail.com");
     toast(state.language === "english" ? "E-Mail kopiert!" : "Copied E-Mail!", {
       icon: "📧",
       position: "top-left",
@@ -32,7 +32,7 @@ export default function ContextMenu() {
   };
 
   const copyURL = () => {
-    navigator.clipboard.writeText("https://gianluca-jahn.de");
+    navigator.clipboard.writeText("https://corplandtechnologies-web.onrender.com/");
     toast(state.language === "english" ? "Link kopiert!" : "Copied URL!", {
       icon: "🌐",
       position: "top-left",
@@ -56,33 +56,11 @@ export default function ContextMenu() {
         state.darkmode ? "dark-context-menu" : "light-context-menu"
       }`}
       id="context-menu">
-      <a
-        target="_blank"
-        href="https://github.com/gianlucajahn/Corpland"
-        onMouseDown={playAudio}
-        onMouseUp={playAudio}>
-        <div className="context-menu-item">
-          <SourceCode className="context-icon" />
-          <h3>{state.language === "english" ? "Quelltext" : "Source Code"}</h3>
-        </div>
-      </a>
+     
 
       <a
         target="_blank"
-        href="https://github.com/gianlucajahn"
-        onMouseDown={playAudio}
-        onMouseUp={playAudio}>
-        <div className="context-menu-item">
-          <GitHub className="context-icon" />
-          <h3>
-            {state.language === "english" ? "GitHub Profil" : "GitHub Profile"}
-          </h3>
-        </div>
-      </a>
-
-      <a
-        target="_blank"
-        href="https://www.linkedin.com/in/gianlucajahn/"
+        href="https://www.linkedin.com/in/corpland/"
         onMouseDown={playAudio}
         onMouseUp={playAudio}>
         <div className="context-menu-item">
