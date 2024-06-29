@@ -7,10 +7,10 @@ import playAudio from "../../utils/helpers/playAudio";
 
 export default function ContactForm() {
   const form = useRef<any>(null);
-  const [state, dispatch] = useContext(store);
-  const input1 = useRef(null),
-    input2 = useRef(null),
-    input3 = useRef(null);
+  const [state] = useContext(store); // Removed unused dispatch
+  const input1 = useRef<HTMLInputElement | null>(null);
+  const input2 = useRef<HTMLInputElement | null>(null);
+  const input3 = useRef<HTMLTextAreaElement | null>(null);
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -20,13 +20,15 @@ export default function ContactForm() {
       {
         position: "top-left",
         style: {
-          border: state.darkmode ? "2px solid hsla(0,0%,51.4%,.16)" : "1px solid #ebebeb",
+          border: state.darkmode
+            ? "2px solid hsla(0,0%,51.4%,.16)"
+            : "1px solid #ebebeb",
           boxShadow: "0px 3px 6px rgba(0, 0, 0, 0.225)",
           borderRadius: "14px",
           fontFamily: "Inter",
           color: state.darkmode ? "white" : "#1d1d1f",
           fontSize: "14px",
-          backgroundColor: state.darkmode ? "#141414" : ""
+          backgroundColor: state.darkmode ? "#141414" : "",
         },
       }
     );
@@ -47,7 +49,7 @@ export default function ContactForm() {
         }
       );
 
-    // clear fields after submitting message
+    // Clear fields after submitting message
     let fields = document.getElementsByClassName("field");
     let field1 = fields[0] as HTMLInputElement,
       field2 = fields[1] as HTMLInputElement,
@@ -63,22 +65,25 @@ export default function ContactForm() {
       onSubmit={sendEmail}
       className={`contact-form-container ${
         state.darkmode ? "dark-card" : "light-card"
-      } ${state.darkmode ? "dark-shadow" : "light-shadow"}`}
-    >
+      } ${state.darkmode ? "dark-shadow" : "light-shadow"}`}>
       <div className="input-container">
         <input
           ref={input1}
-          className={`field data ${state.darkmode ? "dark-field" : "light-field"}`}
+          name="from_name"
+          className={`field data ${
+            state.darkmode ? "dark-field" : "light-field"
+          }`}
           type="text"
-          name="user_name"
           placeholder={state.language === "english" ? "Ihr Name" : "Your name"}
           required
         />
         <input
           ref={input2}
-          className={`field data ${state.darkmode ? "dark-field" : "light-field"}`}
+          className={`field data ${
+            state.darkmode ? "dark-field" : "light-field"
+          }`}
           type="email"
-          name="user_email"
+          name="from_email"
           placeholder={
             state.language === "english"
               ? "Ihre E-Mail-Adresse"
@@ -93,7 +98,7 @@ export default function ContactForm() {
         placeholder={
           state.language === "english"
             ? "Ihre Nachricht an mich"
-            : "Your message for me"
+            : "Your message for us"
         }
         className={`field ${state.darkmode ? "dark-field" : "light-field"}`}
         required

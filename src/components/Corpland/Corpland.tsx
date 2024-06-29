@@ -34,7 +34,7 @@ export default function Corpland() {
         initial={{ opacity: 0, y: 150 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}>
-        Winners live here.
+        Beat your competition.
       </motion.h1>
 
       <IntroCards />

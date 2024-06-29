@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { store } from "../../App";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./IntroCards.scss";
 
 export default function IntroCards() {
@@ -21,9 +22,14 @@ export default function IntroCards() {
           everything you need to name, start, brand and market your business or
           professional self. All in one place, all in one go!
         </p>
-        <button>
-          
-        </button>
+        <div className="link-container">
+          <Link to="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk">
+            <button className="downloadBtn">Download APK</button>
+          </Link>
+          {/* <Link to="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk">
+            <button className="downloadBtn web-btn">Visit Web</button>
+          </Link> */}
+        </div>
       </section>
 
       <section
