@@ -5,9 +5,11 @@ import IntroCards from "../IntroCards/IntroCards";
 import "./Corpland.scss";
 import Showcase from "../Showcase/Showcase";
 import EndCards from "../EndCards/EndCards";
+import { useNavigate } from "react-router-dom";
 
 export default function Corpland() {
   const [state, dispatch] = useContext(store);
+  const navigate = useNavigate()
 
   return (
     <div
@@ -37,7 +39,20 @@ export default function Corpland() {
         Beat your competition.
       </motion.h1>
 
-      <IntroCards />
+      <IntroCards
+        title="The All In One Business Kit!"
+        description="Corpland as we know it has an aim and one aim only. We equip you with
+          everything you need to name, start, brand and market your business or
+          professional self. All in one place, all in one go!"
+        cta="Download APK"
+        externalLink="https://expo.dev/artifacts/eas/fmdRePTQRtkp7JY17T5gX6.apk"
+        firstCardCount="21,500"
+        firstCardLabel="Active Customers"
+        secondCardCount="4.9"
+        secondCardLabel="User Satisfaction"
+        thirdCardCount="12,400"
+        thirdCardLabel="Winning Sellers"
+      />
       {/* <Showcase /> */}
       {/* <EndCards /> */}
     </div>

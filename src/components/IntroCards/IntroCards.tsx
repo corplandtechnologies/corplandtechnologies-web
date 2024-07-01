@@ -4,7 +4,33 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./IntroCards.scss";
 
-export default function IntroCards() {
+interface IntroCardsProps {
+  title: string;
+  description: string;
+  cta: string;
+  externalLink?: string;
+  onClick?: () => void;
+  firstCardCount: string;
+  firstCardLabel: string;
+  secondCardCount: string;
+  secondCardLabel: string;
+  thirdCardCount: string;
+  thirdCardLabel: string;
+}
+
+const IntroCards: React.FC<IntroCardsProps> = ({
+  title,
+  description,
+  cta,
+  onClick,
+  firstCardCount,
+  firstCardLabel,
+  secondCardCount,
+  secondCardLabel,
+  thirdCardCount,
+  thirdCardLabel,
+  externalLink,
+}) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
 
@@ -15,17 +41,23 @@ export default function IntroCards() {
           state.darkmode ? "dark-card" : "light-card"
         }`}>
         <h3 className={`${state.darkmode ? "dark-heading" : "light-heading"}`}>
-          The All In One Business Kit!
+          {title}
         </h3>
         <p className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
-          Corpland as we know it has an aim and one aim only. We equip you with
-          everything you need to name, start, brand and market your business or
-          professional self. All in one place, all in one go!
+          {description}
         </p>
         <div className="link-container">
-          <Link to="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk">
-            <button className="downloadBtn">Download APK</button>
-          </Link>
+          <button
+            className="downloadBtn"
+            onClick={() => {
+              if (externalLink) {
+                window.open(externalLink, "_blank", "noopener,noreferrer");
+              } else if (onClick) {
+                onClick();
+              }
+            }}>
+            {cta}
+          </button>
           {/* <Link to="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk">
             <button className="downloadBtn web-btn">Visit Web</button>
           </Link> */}
@@ -43,12 +75,12 @@ export default function IntroCards() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}>
           <div className="card-top">
-            <h2 className="num green">21,500</h2>
+            <h2 className="num green">{firstCardCount}</h2>
             <h2 className="sign green-sign">+</h2>
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
-            Active Customers
+            {firstCardLabel}
           </h4>
         </motion.div>
 
@@ -61,11 +93,11 @@ export default function IntroCards() {
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}>
           <div className="card-top">
-            <h2 className="num place blue">4.9 Stars</h2>
+            <h2 className="num place blue">{secondCardCount} Stars</h2>
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
-            User Satisfaction
+            {secondCardLabel}
           </h4>
         </motion.div>
 
@@ -77,12 +109,12 @@ export default function IntroCards() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}>
           <div className="card-top">
-            <h2 className="num purple">12,400</h2>
+            <h2 className="num purple">{thirdCardCount}</h2>
             <h2 className="sign purple-sign">+</h2>
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
-            Winning Sellers
+            {thirdCardLabel}
           </h4>
         </motion.div>
 
@@ -106,4 +138,6 @@ export default function IntroCards() {
       </section>
     </div>
   );
-}
+};
+
+export default IntroCards;

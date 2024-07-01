@@ -17,13 +17,14 @@ export default function AboutMe () {
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >{state.language === "english" ? "Über mich" : "About Me"}</motion.h3>
+
       <motion.h1 className={`heading start ${state.darkmode ? "dark-heading" : "light-heading"}`}
         initial={{ opacity: 0, y: 150 }}
         viewport={{ once: true }}
         whileInView={{ opacity: 1, y: 0 }}
       >{state.language === "english" ? "Mein Tech Stack und Expertise." : "My tech stack and expertise."}</motion.h1>
 
-      <IntroCards />
+      {/* <IntroCards /> */}
       <Showcase />
       <EndCards />
     </div>

@@ -28,6 +28,7 @@ import ThemeButton from "./components/ThemeButton/ThemeButton";
 import clickSound from "./assets/audio/click.mp3";
 import playAudio from "./utils/helpers/playAudio";
 import Corpland from "./components/Corpland/Corpland";
+import CorplandConstructs from "./components/CorplandConstructs/CorplandConstructs";
 
 // Create store (redux naming convention)
 export const store = createContext<any>(null);
@@ -58,6 +59,7 @@ function App() {
         <Hero />
         <Manifest />
         <Corpland />
+        <CorplandConstructs />
         {/* <AboutMe /> */}
         {/* <Projects /> */}
         {/* <Skills /> */}
