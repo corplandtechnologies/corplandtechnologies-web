@@ -39,7 +39,7 @@ export default function CorplandConstructs() {
       </motion.h1>
       <IntroCards
         title="The Industry Level Software Solutions."
-        description="Since Corpland Constructs is affliated with one of the fastest growing online MarketPlace Corpland, you have industry level engineers bring your billion dollar ideas to life the using strict industry standards!"
+        description="Since Corpland Constructs is affiliated with one of the fastest growing online MarketPlaces (Corpland), you have industry level engineers bring your billion dollar ideas to life the using strict industry standards!"
         cta="Let's Talk"
         onClick={() => scroll("contact")}
         firstCardCount="67"
