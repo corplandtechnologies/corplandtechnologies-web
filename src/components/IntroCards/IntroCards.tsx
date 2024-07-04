@@ -3,7 +3,6 @@ import { store } from "../../App";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./IntroCards.scss";
-import DownloadComponent from "../Download/DownloadComponent";
 
 interface IntroCardsProps {
   title: string;
