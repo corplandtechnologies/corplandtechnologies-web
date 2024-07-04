@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Corpland() {
   const [state, dispatch] = useContext(store);
-  const navigate = useNavigate()
 
   return (
     <div

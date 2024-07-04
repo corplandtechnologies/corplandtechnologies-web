@@ -1,7 +1,7 @@
 {
   "name": "Corpland",
   "version": "0.1.0",
-  "homepage": "https://gianlucajahn.github.io",
+  "homepage": "https://corplandtechnologies.com",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
@@ -18,6 +18,7 @@
     "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.24.0",
     "react-scripts": "5.0.1",
+    "react-use-downloader": "^1.2.8",
     "sass": "^1.77.6",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
