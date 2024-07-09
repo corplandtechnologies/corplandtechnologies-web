@@ -39,7 +39,8 @@ const IntroCards: React.FC<IntroCardsProps> = ({
       <section
         className={`left-intro big-card ${
           state.darkmode ? "dark-card" : "light-card"
-        }`}>
+        }`}
+      >
         <h3 className={`${state.darkmode ? "dark-heading" : "light-heading"}`}>
           {title}
         </h3>
@@ -55,31 +56,32 @@ const IntroCards: React.FC<IntroCardsProps> = ({
               } else if (onClick) {
                 onClick();
               }
-            }}>
+            }}
+          >
             {cta}
           </button>
-          {/* <Link to="https://expo.dev/artifacts/eas/djamN9ewbNYj1EKFjHCuia.apk">
-            <button className="downloadBtn web-btn">Visit Web</button>
-          </Link> */}
+          <Link to="https://corpland.corplandtechnologies.com">
+            <button className="downloadBtn web-btn">Visit Site</button>
+          </Link>
         </div>
       </section>
 
-      <section
-        className="right-intro"
-        ref={scrollRef}>
+      <section className="right-intro" ref={scrollRef}>
         <motion.div
           className={`small-card ${
             state.darkmode ? "dark-card" : "light-card"
           }`}
           initial={{ scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+        >
           <div className="card-top">
             <h2 className="num green">{firstCardCount}</h2>
             <h2 className="sign green-sign">+</h2>
           </div>
           <h4
-            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
+            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
+          >
             {firstCardLabel}
           </h4>
         </motion.div>
@@ -91,12 +93,14 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           initial={{ scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+        >
           <div className="card-top">
             <h2 className="num place blue">{secondCardCount} Stars</h2>
           </div>
           <h4
-            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
+            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
+          >
             {secondCardLabel}
           </h4>
         </motion.div>
@@ -107,13 +111,15 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           }`}
           initial={{ scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+        >
           <div className="card-top">
             <h2 className="num purple">{thirdCardCount}</h2>
             <h2 className="sign purple-sign">+</h2>
           </div>
           <h4
-            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
+            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
+          >
             {thirdCardLabel}
           </h4>
         </motion.div>
@@ -125,13 +131,15 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           initial={{ scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
-          viewport={{ once: true }}>
+          viewport={{ once: true }}
+        >
           <div className="card-top">
             <h2 className="num red">100</h2>
             <h2 className="sign percent red-sign">%</h2>
           </div>
           <h4
-            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}>
+            className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
+          >
             User Prioritization
           </h4>
         </motion.div>
