@@ -60,9 +60,12 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           >
             {cta}
           </button>
-          <Link to="https://corpland.corplandtechnologies.com">
-            <button className="downloadBtn web-btn">Visit Site</button>
-          </Link>
+
+          <button className="downloadBtn web-btn">
+            <Link to="https://corpland.corplandtechnologies.com">
+              Visit Site
+            </Link>
+          </button>
         </div>
       </section>
 
