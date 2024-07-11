@@ -66,6 +66,9 @@
       align-items: center;
       gap: 10px;
       margin-top: 20px;
+      @media screen and (max-width: 685px) {
+          flex-direction: column;
+        }
 
       .downloadBtn {
         background-color: #0064ff;
