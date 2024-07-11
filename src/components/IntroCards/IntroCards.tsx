@@ -16,6 +16,7 @@ interface IntroCardsProps {
   secondCardLabel: string;
   thirdCardCount: string;
   thirdCardLabel: string;
+  isCorpland?: boolean;
 }
 
 const IntroCards: React.FC<IntroCardsProps> = ({
@@ -30,6 +31,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
   thirdCardCount,
   thirdCardLabel,
   externalLink,
+  isCorpland,
 }) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
@@ -60,12 +62,13 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           >
             {cta}
           </button>
-
-          <button className="downloadBtn web-btn">
-            <Link to="https://corpland.corplandtechnologies.com">
-              Visit Site
-            </Link>
-          </button>
+          {isCorpland && (
+            <button className="downloadBtn web-btn">
+              <Link to="https://corpland.corplandtechnologies.com">
+                Visit Site
+              </Link>
+            </button>
+          )}
         </div>
       </section>
 

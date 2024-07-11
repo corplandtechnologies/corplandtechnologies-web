@@ -44,13 +44,14 @@ export default function Corpland() {
           everything you need to name, start, brand and market your business or
           professional self. All in one place, all in one go!"
         cta="Download APK"
-        externalLink="https://drive.usercontent.google.com/download?id=10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT&export=download&authuser=0&confirm=t&uuid=10f76ac9-fc0e-4965-952b-a6ffa3a8e1c8&at=APZUnTXYICZu_dHQK3A5PMBr0lTt:1720668004147"
+        externalLink="https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?key=AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs&alt=media"
         firstCardCount="21,500"
         firstCardLabel="Active Customers"
         secondCardCount="4.9"
         secondCardLabel="User Satisfaction"
         thirdCardCount="12,400"
         thirdCardLabel="Winning Sellers"
+        isCorpland
       />
       {/* <Showcase /> */}
       {/* <EndCards /> */}
