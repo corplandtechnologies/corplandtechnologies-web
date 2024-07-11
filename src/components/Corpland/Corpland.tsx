@@ -44,7 +44,7 @@ export default function Corpland() {
           everything you need to name, start, brand and market your business or
           professional self. All in one place, all in one go!"
         cta="Download APK"
-        externalLink="https://drive.google.com/uc?id=10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT&export=download&confirm=t"
+        externalLink="https://drive.google.com/uc?export=download&id=10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT"
         firstCardCount="21,500"
         firstCardLabel="Active Customers"
         secondCardCount="4.9"
