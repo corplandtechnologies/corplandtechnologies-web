@@ -14,21 +14,24 @@ export default function Corpland() {
     "https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?key=AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs&alt=media";
   useEffect(() => {
     const fetchDownloadUrl = async () => {
-      const fileId = new URLSearchParams(new URL(externalLink).search).get(
-        "fileId"
-      );
-      const apiKey = "AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs"; // Make sure to replace YOUR_API_KEY with your actual API key
-      const response = await fetch(
-        `https://www.googleapis.com/drive/v3/files/${fileId}?fields=name,mimeType`
-      );
-      const data = await response.json();
-      const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
-      setDownloadUrl(`${url}&name=${encodeURIComponent(data.name)}`);
+      try {
+        const fileId = "10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT"; // Directly use the known file ID
+        const apiKey = "AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs"; // Your API key
+        const response = await fetch(
+          `https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?fields=name,mimeType`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        const url = `https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?alt=media&key=${apiKey}`;
+        setDownloadUrl(`${url}&name=${encodeURIComponent(data.name)}`);
+      } catch (error) {
+        console.error("Failed to fetch download URL:", error);
+      }
     };
 
-    if (externalLink) {
-      fetchDownloadUrl();
-    }
+    fetchDownloadUrl();
   }, [externalLink]);
 
   const handleDownloadClick = () => {
