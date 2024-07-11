@@ -24,7 +24,7 @@ export default function Corpland() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        const url = `https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?alt=media&key=${apiKey}`;
+        const url = `https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?alt=media&key=AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs`;
         setDownloadUrl(`${url}&name=${encodeURIComponent(data.name)}`);
       } catch (error) {
         console.error("Failed to fetch download URL:", error);
