@@ -32,7 +32,7 @@ export default function Corpland() {
     };
 
     fetchDownloadUrl();
-  }, [externalLink]);
+  }, []);
 
   const handleDownloadClick = () => {
     if (downloadUrl) {
