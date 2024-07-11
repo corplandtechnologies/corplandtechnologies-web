@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { store } from "../../App";
 import { motion } from "framer-motion";
 import IntroCards from "../IntroCards/IntroCards";
@@ -9,6 +9,33 @@ import { useNavigate } from "react-router-dom";
 
 export default function Corpland() {
   const [state, dispatch] = useContext(store);
+  const [downloadUrl, setDownloadUrl] = useState("");
+  const externalLink =
+    "https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?key=AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs&alt=media";
+  useEffect(() => {
+    const fetchDownloadUrl = async () => {
+      const fileId = new URLSearchParams(new URL(externalLink).search).get(
+        "fileId"
+      );
+      const apiKey = "AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs"; // Make sure to replace YOUR_API_KEY with your actual API key
+      const response = await fetch(
+        `https://www.googleapis.com/drive/v3/files/${fileId}?fields=name,mimeType`
+      );
+      const data = await response.json();
+      const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${apiKey}`;
+      setDownloadUrl(`${url}&name=${encodeURIComponent(data.name)}`);
+    };
+
+    if (externalLink) {
+      fetchDownloadUrl();
+    }
+  }, [externalLink]);
+
+  const handleDownloadClick = () => {
+    if (downloadUrl) {
+      window.location.href = downloadUrl;
+    }
+  };
 
   return (
     <div
@@ -39,12 +66,12 @@ export default function Corpland() {
       </motion.h1>
 
       <IntroCards
+        onClick={handleDownloadClick}
         title="The All In One Business Kit!"
         description="Corpland as we know it has an aim and one aim only. We equip you with
           everything you need to name, start, brand and market your business or
           professional self. All in one place, all in one go!"
         cta="Download APK"
-        externalLink="https://www.googleapis.com/drive/v3/files/10XVpQCi2wt9tJVyT_hJTuarEqxELdOVT?key=AIzaSyDrCgbPrI0GXR0utSYSgcEtyvrndAMNVHs&alt=media"
         firstCardCount="21,500"
         firstCardLabel="Active Customers"
         secondCardCount="4.9"

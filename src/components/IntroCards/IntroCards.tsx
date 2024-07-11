@@ -50,16 +50,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           {description}
         </p>
         <div className="link-container">
-          <button
-            className="downloadBtn"
-            onClick={() => {
-              if (externalLink) {
-                window.open(externalLink, "_blank", "noopener,noreferrer");
-              } else if (onClick) {
-                onClick();
-              }
-            }}
-          >
+          <button className="downloadBtn" onClick={onClick}>
             {cta}
           </button>
           {isCorpland && (
