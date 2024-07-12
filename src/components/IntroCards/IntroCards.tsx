@@ -63,11 +63,12 @@ const IntroCards: React.FC<IntroCardsProps> = ({
             {cta}
           </button>
           {isCorpland && (
-            <button className="downloadBtn web-btn">
-              <Link to="https://corpland.corplandtechnologies.com">
-                Visit Site
-              </Link>
-            </button>
+            <Link
+              className="site-link"
+              to="https://corpland.corplandtechnologies.com"
+            >
+              <button className="downloadBtn web-btn">Visit Site</button>
+            </Link>
           )}
         </div>
       </section>

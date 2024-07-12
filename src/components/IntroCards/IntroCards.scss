@@ -72,6 +72,11 @@
         width: 100%;
         flex-direction: column;
       }
+      .site-link {
+       @media screen and (max-width: 685px) {
+          width: 100%;
+        }
+      }
 
       .downloadBtn {
         background-color: #0064ff;
