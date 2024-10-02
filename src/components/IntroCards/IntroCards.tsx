@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./IntroCards.scss";
 import { AppStoreButton, GooglePlayButton } from "react-mobile-app-button";
-import { APKUrl, appleAppURL } from "../../data/index";
+import { APKUrl, appleAppURL } from "../../data";
 
 interface IntroCardsProps {
   title: string;
   description: string;
+  cta?: string;
   externalLink?: string;
+  onClick?: () => void;
   firstCardCount: string;
   firstCardLabel: string;
   secondCardCount: string;
@@ -22,13 +24,16 @@ interface IntroCardsProps {
 const IntroCards: React.FC<IntroCardsProps> = ({
   title,
   description,
+  cta,
+  onClick,
   firstCardCount,
   firstCardLabel,
   secondCardCount,
   secondCardLabel,
   thirdCardCount,
   thirdCardLabel,
-
+  externalLink,
+  isCorpland,
 }) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
@@ -47,16 +52,33 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           {description}
         </p>
         <div className="link-container">
-          <GooglePlayButton
-            url={APKUrl}
-            theme={`${state.darkmode ? "dark" : "light"}`}
-            className={"custom-style"}
-          />
-          <AppStoreButton
-            url={appleAppURL}
-            theme={`${state.darkmode ? "dark" : "light"}`}
-            className={"custom-style"}
-          />
+          {isCorpland ? (
+            <>
+              <GooglePlayButton
+                url={APKUrl}
+                theme={`${state.darkmode ? "dark" : "light"}`}
+                className={"custom-style"}
+              />
+              <AppStoreButton
+                url={appleAppURL}
+                theme={`${state.darkmode ? "dark" : "light"}`}
+                className={"custom-style"}
+              />
+            </>
+          ) : (
+            <button
+              className="downloadBtn"
+              onClick={() => {
+                if (externalLink) {
+                  window.open(externalLink, "_blank", "noopener,noreferrer");
+                } else if (onClick) {
+                  onClick();
+                }
+              }}
+            >
+              {cta}
+            </button>
+          )}
         </div>
       </section>
 
