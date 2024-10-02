@@ -12,7 +12,7 @@ interface IntroCardsProps {
   cta?: string;
   externalLink?: string;
   onClick?: () => void;
-  firstCardCount: string;
+  firstCardCount?: string;
   firstCardLabel: string;
   secondCardCount: string;
   secondCardLabel: string;
