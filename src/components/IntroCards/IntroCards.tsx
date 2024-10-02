@@ -3,6 +3,8 @@ import { store } from "../../App";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./IntroCards.scss";
+import { AppStoreButton, GooglePlayButton } from "react-mobile-app-button";
+import { APKUrl, appleAppURL } from "../../data/index";
 
 interface IntroCardsProps {
   title: string;
@@ -50,26 +52,16 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           {description}
         </p>
         <div className="link-container">
-          <button
-            className="downloadBtn"
-            onClick={() => {
-              if (externalLink) {
-                window.open(externalLink, "_blank", "noopener,noreferrer");
-              } else if (onClick) {
-                onClick();
-              }
-            }}
-          >
-            {cta}
-          </button>
-          {isCorpland && (
-            <Link
-              className="site-link"
-              to="https://corpland.corplandtechnologies.com"
-            >
-              <button className="downloadBtn web-btn">Visit Site</button>
-            </Link>
-          )}
+          <GooglePlayButton
+            url={APKUrl}
+            theme={`${state.darkmode ? "dark" : "light"}`}
+            className={"custom-style"}
+          />
+          <AppStoreButton
+            url={appleAppURL}
+            theme={`${state.darkmode ? "dark" : "light"}`}
+            className={"custom-style"}
+          />
         </div>
       </section>
 
