@@ -9,9 +9,7 @@ import { APKUrl, appleAppURL } from "../../data/index";
 interface IntroCardsProps {
   title: string;
   description: string;
-  cta: string;
   externalLink?: string;
-  onClick?: () => void;
   firstCardCount: string;
   firstCardLabel: string;
   secondCardCount: string;
@@ -24,16 +22,13 @@ interface IntroCardsProps {
 const IntroCards: React.FC<IntroCardsProps> = ({
   title,
   description,
-  cta,
-  onClick,
   firstCardCount,
   firstCardLabel,
   secondCardCount,
   secondCardLabel,
   thirdCardCount,
   thirdCardLabel,
-  externalLink,
-  isCorpland,
+
 }) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
