@@ -19,6 +19,9 @@ interface IntroCardsProps {
   thirdCardCount: string;
   thirdCardLabel: string;
   isCorpland?: boolean;
+  hideFirstPlus?: boolean;
+  hideSecondStars?: boolean;
+  hideThirdPlus?: boolean;
 }
 
 const IntroCards: React.FC<IntroCardsProps> = ({
@@ -34,6 +37,9 @@ const IntroCards: React.FC<IntroCardsProps> = ({
   thirdCardLabel,
   externalLink,
   isCorpland,
+  hideFirstPlus,
+  hideSecondStars,
+  hideThirdPlus,
 }) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
@@ -93,7 +99,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
         >
           <div className="card-top">
             <h2 className="num green">{firstCardCount}</h2>
-            <h2 className="sign green-sign">+</h2>
+            {!hideFirstPlus && <h2 className="sign green-sign">+</h2>}
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
@@ -112,7 +118,10 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           viewport={{ once: true }}
         >
           <div className="card-top">
-            <h2 className="num place blue">{secondCardCount} Stars</h2>
+            <h2 className="num place blue">
+              {secondCardCount}
+              {!hideSecondStars && " Stars"}
+            </h2>
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}
@@ -131,7 +140,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
         >
           <div className="card-top">
             <h2 className="num purple">{thirdCardCount}</h2>
-            <h2 className="sign purple-sign">+</h2>
+            {!hideThirdPlus && <h2 className="sign purple-sign">+</h2>}
           </div>
           <h4
             className={`${state.darkmode ? "dark-eyebrow" : "light-eyebrow"}`}

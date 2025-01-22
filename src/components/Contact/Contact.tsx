@@ -14,7 +14,7 @@ export default function Contact() {
   const [state, dispatch] = useContext(store);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("corplandtechnologies@gmail.com");
+    navigator.clipboard.writeText("hello@corplandtechnologies.com");
     toast(state.language === "english" ? "E-Mail kopiert!" : "Copied E-Mail!", {
       icon: "📧",
       position: "top-left",
@@ -36,18 +36,17 @@ export default function Contact() {
     <div
       className={`contact-container ${
         state.darkmode ? "dark-bg-2" : "light-bg-2"
-      }`}>
-      <div
-        className="anchor"
-        id="contact"
-      />
+      }`}
+    >
+      <div className="anchor" id="contact" />
       <motion.h3
         className={`eyebrow ${
           state.darkmode ? "dark-eyebrow" : "light-eyebrow"
         }`}
         initial={{ y: 200 }}
         whileInView={{ y: 0 }}
-        viewport={{ once: true }}>
+        viewport={{ once: true }}
+      >
         {state.language === "english" ? "Kontakt" : "Contact"}
       </motion.h3>
       <motion.h1
@@ -56,7 +55,8 @@ export default function Contact() {
         }`}
         initial={{ y: 150 }}
         whileInView={{ y: 0 }}
-        viewport={{ once: true }}>
+        viewport={{ once: true }}
+      >
         {state.language === "english"
           ? "So erreichen Sie mich jederzeit."
           : "Reach out to us any way you want."}
@@ -76,7 +76,8 @@ export default function Contact() {
           transition={{
             opacity: { duration: 0.3, delay: 0.3 },
             x: { duration: 0.8, type: "spring", delay: 0.25 },
-          }}>
+          }}
+        >
           <ContactForm />
         </motion.div>
 
@@ -90,16 +91,19 @@ export default function Contact() {
           transition={{
             opacity: { duration: 0.3, delay: 0.3 },
             x: { duration: 0.8, type: "spring", delay: 0.25 },
-          }}>
+          }}
+        >
           <a
             target="_blank"
-            href="https://www.linkedin.com/in/corpland/"
+            href="https://www.linkedin.com/company/corpland-technologies"
             onMouseDown={playAudio}
-            onMouseUp={playAudio}>
+            onMouseUp={playAudio}
+          >
             <button
               className={`contact-socials-item linkedin ${
                 state.darkmode ? "dark-field" : ""
-              }`}>
+              }`}
+            >
               <LinkedIn
                 className={`svg ${state.darkmode ? "dark-svg" : "light-svg"}`}
               />
@@ -111,11 +115,13 @@ export default function Contact() {
             target="_blank"
             href="https://x.com/Corpland_"
             onMouseDown={playAudio}
-            onMouseUp={playAudio}>
+            onMouseUp={playAudio}
+          >
             <button
               className={`contact-socials-item twitter ${
                 state.darkmode ? "dark-field" : ""
-              }`}>
+              }`}
+            >
               <Twitter
                 className={`svg ${state.darkmode ? "dark-svg" : "light-svg"}`}
               />
@@ -127,11 +133,13 @@ export default function Contact() {
             target="_blank"
             href="https://wa.me/+233201027084"
             onMouseDown={playAudio}
-            onMouseUp={playAudio}>
+            onMouseUp={playAudio}
+          >
             <button
               className={`contact-socials-item whatsapp ${
                 state.darkmode ? "dark-field" : ""
-              }`}>
+              }`}
+            >
               <WhatsApp
                 className={`svg ${state.darkmode ? "dark-svg" : "light-svg"}`}
               />
@@ -143,7 +151,8 @@ export default function Contact() {
             className="email"
             onClick={copyEmail}
             onMouseDown={playAudio}
-            onMouseUp={playAudio}>
+            onMouseUp={playAudio}
+          >
             {state.language === "english" ? "E-Mail kopieren" : "Copy my email"}
           </button>
         </motion.section>

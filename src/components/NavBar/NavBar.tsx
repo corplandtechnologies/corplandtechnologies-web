@@ -27,13 +27,13 @@ export default function NavBar() {
         onMouseUp={playAudio}>
           About
       </h3>
-      {/* <h3
+      <h3
         className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
-        onClick={(e) => scroll("Corpland")}
+        onClick={(e) => scroll("corpland-constructs")}
         onMouseDown={playAudio}
         onMouseUp={playAudio}>
-        Portfolio
-      </h3> */}
+        Constructs
+      </h3>
       {/* <h3
         className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("skills")}
