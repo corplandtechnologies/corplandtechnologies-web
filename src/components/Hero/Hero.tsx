@@ -82,5 +82,6 @@ export default function Hero() {
         <img src={require("../../assets/images/arrow.png")} />
       </motion.button>
     </div>
+    
   );
 }
