@@ -13,7 +13,8 @@ export default function NavBar() {
       initial={{ opacity: 0, scale: 0.25 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ type: "spring", duration: 0.7 }}
-      className={`${state.darkmode ? "dark-nav" : "light-nav"}`}>
+      className={`${state.darkmode ? "dark-nav" : "light-nav"}`}
+    >
       <img
         onClick={(e) => scroll("hero")}
         src={require("../../assets/images/CORPLAND5.png")}
@@ -24,24 +25,27 @@ export default function NavBar() {
         className={`first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("about-me")}
         onMouseDown={playAudio}
-        onMouseUp={playAudio}>
-          About
+        onMouseUp={playAudio}
+      >
+        About
       </h3>
       <h3
-        className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
+        className={` first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
+        onClick={(e) => scroll("corpland")}
+        onMouseDown={playAudio}
+        onMouseUp={playAudio}
+      >
+        Corpland
+      </h3>
+      <h3
+        className={`first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("corpland-constructs")}
         onMouseDown={playAudio}
-        onMouseUp={playAudio}>
+        onMouseUp={playAudio}
+      >
         Constructs
       </h3>
       {/* <h3
-        className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
-        onClick={(e) => scroll("skills")}
-        onMouseDown={playAudio}
-        onMouseUp={playAudio}>
-        Skills
-      </h3>
-      <h3
         className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("resume")}
         onMouseDown={playAudio}
@@ -53,7 +57,8 @@ export default function NavBar() {
         type="button"
         onClick={(e) => scroll("contact")}
         onMouseDown={playAudio}
-        onMouseUp={playAudio}>
+        onMouseUp={playAudio}
+      >
         {state.language === "english" ? "Kontakt" : "Contact"}
       </button>
     </motion.nav>

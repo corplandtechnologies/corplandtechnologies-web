@@ -50,7 +50,8 @@ function App() {
         onScroll={(e) => setCursorLocation(e)}
         onMouseDown={(e) => setCursorAppearance(e)}
         onMouseUp={(e) => setCursorAppearance(e)}
-        onContextMenu={(e) => toggleContextMenu(e)}>
+        onContextMenu={(e) => toggleContextMenu(e)}
+      >
         <Toaster />
         <Cursor />
         <NavBar />
@@ -58,8 +59,8 @@ function App() {
         <ContextMenu />
         <Hero />
         <Manifest />
-        <Corpland />
         <CorplandConstructs />
+        <Corpland />
         {/* <AboutMe /> */}
         {/* <Projects /> */}
         {/* <Skills /> */}

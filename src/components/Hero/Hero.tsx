@@ -12,16 +12,15 @@ export default function Hero() {
     <div
       className={`container-hero ${
         state.darkmode ? "dark-bg-1" : "light-bg-1"
-      }`}>
-      <div
-        className="anchor"
-        id="hero"
-      />
+      }`}
+    >
+      <div className="anchor" id="hero" />
       <motion.div
         className="container-avatar"
         initial={{ opacity: 0, y: 350 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "spring", duration: 0.6 }}>
+        transition={{ type: "spring", duration: 0.6 }}
+      >
         <img
           className="img-avatar"
           src={require("../../assets/images/CORPLAND5.png")}
@@ -36,7 +35,8 @@ export default function Hero() {
           delay: 0.2,
           opacity: { duration: 0.2, type: "tween" },
           y: { duration: 0.55, type: "spring" },
-        }}>
+        }}
+      >
         ...Better Choices
       </motion.h2>
 
@@ -48,7 +48,8 @@ export default function Hero() {
           delay: 0.29,
           opacity: { duration: 0.2, type: "tween" },
           y: { duration: 0.6, type: "spring" },
-        }}>
+        }}
+      >
         Corpland Technologies
       </motion.h1>
 
@@ -60,12 +61,13 @@ export default function Hero() {
           delay: 0.5,
           opacity: { duration: 0.15, type: "tween" },
           y: { duration: 0.55, type: "spring" },
-        }}>
+        }}
+      >
         Make your best Decisions with Corpland Technologies Today
       </motion.h4>
 
       <motion.button
-        onClick={(e) => scroll("about-me")}
+        onClick={(e) => scroll("corpland-constructs")}
         onMouseDown={playAudio}
         onMouseUp={playAudio}
         initial={{ opacity: 0, y: 140 }}
@@ -74,7 +76,8 @@ export default function Hero() {
           delay: 0.7,
           opacity: { duration: 0.15, type: "tween" },
           y: { duration: 0.4, type: "spring" },
-        }}>
+        }}
+      >
         <h3>Get Started</h3>
         <img src={require("../../assets/images/arrow.png")} />
       </motion.button>

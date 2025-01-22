@@ -16,7 +16,7 @@ export default function Corpland() {
         state.darkmode ? "dark-bg-2" : "light-bg-2"
       }`}
     >
-      <div className="anchor" id="about-me" />
+      <div className="anchor" id="corpland" />
       <motion.h3
         className={`start eyebrow ${
           state.darkmode ? "dark-eyebrow" : "light-eyebrow"
