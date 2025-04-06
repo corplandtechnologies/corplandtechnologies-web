@@ -1,14 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { store } from "../../App";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import IntroCards from "../IntroCards/IntroCards";
 import "./Corpland.scss";
 import Showcase from "../Showcase/Showcase";
 import EndCards from "../EndCards/EndCards";
 import { useNavigate } from "react-router-dom";
+import SubscriptionService from "../../services/subscription.service";
 
 export default function Corpland() {
   const [state, dispatch] = useContext(store);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+
+  const referenceCode = useMemo(() => {
+    return new URLSearchParams(window.location.search).get("reference");
+  }, [window.location.search]);
+
+  useEffect(() => {
+    const verifyPayment = async () => {
+      if (!referenceCode) return;
+      const response = await SubscriptionService.verifyPayment(referenceCode);
+      if (response.success) {
+        setIsSuccessModalOpen(true);
+      }
+    };
+
+    if (referenceCode) {
+      verifyPayment();
+    }
+  }, [referenceCode]);
 
   return (
     <div
@@ -53,6 +73,53 @@ export default function Corpland() {
       />
       {/* <Showcase /> */}
       {/* <EndCards /> */}
+      <AnimatePresence>
+        {isSuccessModalOpen && (
+          <motion.div
+            className="success-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsSuccessModalOpen(false)}
+          >
+            <motion.div
+              className={`success-modal ${
+                state.darkmode ? "dark-card" : "light-card"
+              }`}
+              initial={{ scale: 0, y: 100 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0, y: 100 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="success-content">
+                <div className="success-icon">✓</div>
+                <h2
+                  className={state.darkmode ? "dark-heading" : "light-heading"}
+                >
+                  Payment Successful!
+                </h2>
+                <p
+                  className={state.darkmode ? "dark-eyebrow" : "light-eyebrow"}
+                >
+                  Thank you for Subscribing. You can go back to Corpland and
+                  enjoy your amazing experience.
+                </p>
+                <button
+                  className="close-success-btn"
+                  onClick={() => setIsSuccessModalOpen(false)}
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

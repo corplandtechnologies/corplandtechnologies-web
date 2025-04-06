@@ -8,7 +8,6 @@ import EndCards from "../EndCards/EndCards";
 import scroll from "../../utils/helpers/scroll";
 import RegistrationForm from "./components/RegistrationForm";
 import PaymentService from "../../services/payment.service";
-import SubscriptionService from "../../services/subscription.service";
 
 export default function CorplandConstructs() {
   const [state, dispatch] = useContext(store);
@@ -23,10 +22,7 @@ export default function CorplandConstructs() {
     const verifyPayment = async () => {
       if (!referenceCode) return;
       const response = await PaymentService.verifyPayment(referenceCode);
-      const corplandResponse = await SubscriptionService.verifyPayment(
-        referenceCode
-      );
-      if (response.success || corplandResponse.success) {
+      if (response.success) {
         setIsSuccessModalOpen(true);
       }
     };
