@@ -59,8 +59,8 @@ function App() {
         <ContextMenu />
         <Hero />
         <Manifest />
-        <CorplandConstructs />
         <Corpland />
+        {/* <CorplandConstructs /> */}
         {/* <AboutMe /> */}
         {/* <Projects /> */}
         {/* <Skills /> */}
