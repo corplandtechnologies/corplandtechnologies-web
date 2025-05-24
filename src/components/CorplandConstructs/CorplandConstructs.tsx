@@ -22,7 +22,8 @@ export default function CorplandConstructs() {
     const verifyPayment = async () => {
       if (!referenceCode) return;
       const response = await PaymentService.verifyPayment(referenceCode);
-      if (response.success) {
+      const adResponse = await PaymentService.verifyPayment(referenceCode);
+      if (response.success || adResponse) {
         setIsSuccessModalOpen(true);
       }
     };

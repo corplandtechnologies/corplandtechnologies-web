@@ -6,6 +6,6 @@ export const API = axios.create({
 });
 
 export const CORPLAND_BACKEND_API = axios.create({
-  baseURL: "https://corpland-backend-v2-backup.onrender.com/api/v1",
+  baseURL: "https://corpland-backend-new-backup.onrender.com/api/v1",
   withCredentials: true,
 });
