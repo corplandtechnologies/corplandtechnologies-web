@@ -18,24 +18,24 @@ export default function Corpland() {
   }, [window.location.search]);
 
   // Subscription verification effect
-  // useEffect(() => {
-  //   const verifySubscription = async () => {
-  //     if (!referenceCode) return;
+  useEffect(() => {
+    const verifySubscription = async () => {
+      if (!referenceCode) return;
 
-  //     try {
-  //       const response = await SubscriptionService.verifyPayment(referenceCode);
-  //       if (response.success) {
-  //         setIsSuccessModalOpen(true);
-  //       }
-  //     } catch (error) {
-  //       console.log("Subscription verification failed:", error);
-  //     }
-  //   };
+      try {
+        const response = await SubscriptionService.verifyPayment(referenceCode);
+        if (response.success) {
+          setIsSuccessModalOpen(true);
+        }
+      } catch (error) {
+        console.log("Subscription verification failed:", error);
+      }
+    };
 
-  //   if (referenceCode) {
-  //     verifySubscription();
-  //   }
-  // }, [referenceCode]);
+    if (referenceCode) {
+      verifySubscription();
+    }
+  }, [referenceCode]);
 
   // Ad verification effect
   useEffect(() => {
