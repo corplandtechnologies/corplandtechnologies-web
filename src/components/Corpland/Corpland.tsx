@@ -17,33 +17,31 @@ export default function Corpland() {
     return new URLSearchParams(window.location.search).get("reference");
   }, [window.location.search]);
 
-  // Subscription verification effect
   useEffect(() => {
-    const verifySubscription = async () => {
+    const verifyPayment = async () => {
       if (!referenceCode) return;
 
       try {
         const response = await SubscriptionService.verifyPayment(referenceCode);
         if (response.success) {
           setIsSuccessModalOpen(true);
+          return;
         }
       } catch (error) {
         console.log("Subscription verification failed:", error);
       }
-    };
 
-    if (referenceCode) {
-      verifySubscription();
-    }
-  }, [referenceCode]);
-
-  // Ad verification effect
-  useEffect(() => {
-    const verifyAd = async () => {
-      if (!referenceCode) return;
+      // Add timeout to prevent infinite pending state
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error("Ad verification timeout")), 10000); // 10 second timeout
+      });
 
       try {
-        const adResponse = await AdService.verifyPayment(referenceCode);
+        const adResponse = await Promise.race([
+          AdService.verifyPayment(referenceCode),
+          timeoutPromise,
+        ]);
+
         if (adResponse.success) {
           setIsSuccessModalOpen(true);
         }
@@ -53,7 +51,7 @@ export default function Corpland() {
     };
 
     if (referenceCode) {
-      verifyAd();
+      verifyPayment();
     }
   }, [referenceCode]);
 
