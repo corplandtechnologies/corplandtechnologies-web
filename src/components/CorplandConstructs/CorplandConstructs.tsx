@@ -1,16 +1,14 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { store } from "../../App";
 import { motion, AnimatePresence } from "framer-motion";
 import IntroCards from "../IntroCards/IntroCards";
 import "./CorplandConstructs.scss";
-import Showcase from "../Showcase/Showcase";
-import EndCards from "../EndCards/EndCards";
-import scroll from "../../utils/helpers/scroll";
 import RegistrationForm from "./components/RegistrationForm";
 import PaymentService from "../../services/payment.service";
+import AdService from "../../services/ad.service";
 
 export default function CorplandConstructs() {
-  const [state, dispatch] = useContext(store);
+  const [state] = useContext(store);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
@@ -22,8 +20,8 @@ export default function CorplandConstructs() {
     const verifyPayment = async () => {
       if (!referenceCode) return;
       const response = await PaymentService.verifyPayment(referenceCode);
-      const adResponse = await PaymentService.verifyPayment(referenceCode);
-      if (response.success || adResponse) {
+      const adResponse = await AdService.verifyPayment(referenceCode);
+      if (response.success || adResponse.success) {
         setIsSuccessModalOpen(true);
       }
     };

@@ -7,6 +7,7 @@ import Showcase from "../Showcase/Showcase";
 import EndCards from "../EndCards/EndCards";
 import { useNavigate } from "react-router-dom";
 import SubscriptionService from "../../services/subscription.service";
+import AdService from "../../services/ad.service";
 
 export default function Corpland() {
   const [state, dispatch] = useContext(store);
@@ -20,7 +21,9 @@ export default function Corpland() {
     const verifyPayment = async () => {
       if (!referenceCode) return;
       const response = await SubscriptionService.verifyPayment(referenceCode);
-      if (response.success) {
+      const adResponse = await AdService.verifyPayment(referenceCode);
+
+      if (response.success || adResponse.success) {
         setIsSuccessModalOpen(true);
       }
     };
