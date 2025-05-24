@@ -20,11 +20,24 @@ export default function Corpland() {
   useEffect(() => {
     const verifyPayment = async () => {
       if (!referenceCode) return;
-      const response = await SubscriptionService.verifyPayment(referenceCode);
-      const adResponse = await AdService.verifyPayment(referenceCode);
 
-      if (response.success || adResponse.success) {
-        setIsSuccessModalOpen(true);
+      try {
+        const response = await SubscriptionService.verifyPayment(referenceCode);
+        if (response.success) {
+          setIsSuccessModalOpen(true);
+          return;
+        }
+      } catch (error) {
+        console.log("Subscription verification failed:", error);
+      }
+
+      try {
+        const adResponse = await AdService.verifyPayment(referenceCode);
+        if (adResponse.success) {
+          setIsSuccessModalOpen(true);
+        }
+      } catch (error) {
+        console.log("Ad verification failed:", error);
       }
     };
 
