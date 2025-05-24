@@ -17,19 +17,30 @@ export default function Corpland() {
     return new URLSearchParams(window.location.search).get("reference");
   }, [window.location.search]);
 
+  // Subscription verification effect
   useEffect(() => {
-    const verifyPayment = async () => {
+    const verifySubscription = async () => {
       if (!referenceCode) return;
 
       try {
         const response = await SubscriptionService.verifyPayment(referenceCode);
         if (response.success) {
           setIsSuccessModalOpen(true);
-          return;
         }
       } catch (error) {
         console.log("Subscription verification failed:", error);
       }
+    };
+
+    if (referenceCode) {
+      verifySubscription();
+    }
+  }, [referenceCode]);
+
+  // Ad verification effect
+  useEffect(() => {
+    const verifyAd = async () => {
+      if (!referenceCode) return;
 
       try {
         const adResponse = await AdService.verifyPayment(referenceCode);
@@ -42,7 +53,7 @@ export default function Corpland() {
     };
 
     if (referenceCode) {
-      verifyPayment();
+      verifyAd();
     }
   }, [referenceCode]);
 
