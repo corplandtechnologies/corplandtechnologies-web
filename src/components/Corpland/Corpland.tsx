@@ -31,17 +31,8 @@ export default function Corpland() {
         console.log("Subscription verification failed:", error);
       }
 
-      // Add timeout to prevent infinite pending state
-      const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error("Ad verification timeout")), 10000); // 10 second timeout
-      });
-
       try {
-        const adResponse = await Promise.race([
-          AdService.verifyPayment(referenceCode),
-          timeoutPromise,
-        ]);
-
+        const adResponse = await AdService.verifyPayment(referenceCode);
         if (adResponse.success) {
           setIsSuccessModalOpen(true);
         }
