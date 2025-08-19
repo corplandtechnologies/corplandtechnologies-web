@@ -37,14 +37,14 @@ export default function NavBar() {
       >
         Corpland
       </h3>
-      <h3
+      {/* <h3
         className={`first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("corpland-constructs")}
         onMouseDown={playAudio}
         onMouseUp={playAudio}
       >
         Constructs
-      </h3>
+      </h3> */}
       {/* <h3
         className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("resume")}
