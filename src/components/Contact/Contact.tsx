@@ -13,6 +13,7 @@ import playAudio from "../../utils/helpers/playAudio";
 export default function Contact() {
   const [state, dispatch] = useContext(store);
 
+  
   const copyEmail = () => {
     navigator.clipboard.writeText("mail@corplandtechnologies.com");
     toast(state.language === "english" ? "E-Mail kopiert!" : "Copied E-Mail!", {
