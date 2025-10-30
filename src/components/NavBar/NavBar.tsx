@@ -21,14 +21,14 @@ export default function NavBar() {
         onMouseDown={playAudio}
         onMouseUp={playAudio}
       />
-      <h3
+      {/* <h3
         className={`first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("about-me")}
         onMouseDown={playAudio}
         onMouseUp={playAudio}
       >
         About
-      </h3>
+      </h3> */}
       <h3
         className={` first ${state.darkmode ? "dark-anchor" : "light-anchor"}`}
         onClick={(e) => scroll("corpland")}
