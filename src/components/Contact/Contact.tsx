@@ -14,7 +14,7 @@ export default function Contact() {
   const [state, dispatch] = useContext(store);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("hello@corplandtechnologies.com");
+    navigator.clipboard.writeText("mail@corplandtechnologies.com");
     toast(state.language === "english" ? "E-Mail kopiert!" : "Copied E-Mail!", {
       icon: "📧",
       position: "top-left",

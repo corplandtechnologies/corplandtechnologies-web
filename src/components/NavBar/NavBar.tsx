@@ -45,13 +45,6 @@ export default function NavBar() {
       >
         Constructs
       </h3> */}
-      {/* <h3
-        className={`${state.darkmode ? "dark-anchor" : "light-anchor"}`}
-        onClick={(e) => scroll("resume")}
-        onMouseDown={playAudio}
-        onMouseUp={playAudio}>
-        {state.language === "english" ? "Lebenslauf" : "Resume"}
-      </h3> */}
       <button
         className="btn-nav"
         type="button"
