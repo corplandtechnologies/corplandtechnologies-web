@@ -22,6 +22,7 @@ interface IntroCardsProps {
   hideFirstPlus?: boolean;
   hideSecondStars?: boolean;
   hideThirdPlus?: boolean;
+  appName?: "corpland" | "cubbicles" | "constructs" | "portables";
 }
 
 const IntroCards: React.FC<IntroCardsProps> = ({
@@ -40,6 +41,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
   hideFirstPlus,
   hideSecondStars,
   hideThirdPlus,
+  appName,
 }) => {
   const [state, dispatch] = useContext(store);
   const scrollRef = useRef(null);
@@ -58,7 +60,7 @@ const IntroCards: React.FC<IntroCardsProps> = ({
           {description}
         </p>
         <div className="link-container">
-          {isCorpland ? (
+          {appName === "corpland" ? (
             <>
               <GooglePlayButton
                 url={APKUrl}
@@ -72,18 +74,41 @@ const IntroCards: React.FC<IntroCardsProps> = ({
               />
             </>
           ) : (
-            <button
-              className="downloadBtn"
-              onClick={() => {
-                if (externalLink) {
-                  window.open(externalLink, "_blank", "noopener,noreferrer");
-                } else if (onClick) {
-                  onClick();
-                }
-              }}
-            >
-              {cta}
-            </button>
+            <>
+              {appName === "cubbicles" ? (
+                <>
+                  <GooglePlayButton
+                    url={
+                      "https://play.google.com/store/apps/details?id=com.corplandtechnologies.cubbicles"
+                    }
+                    theme={`${state.darkmode ? "dark" : "light"}`}
+                    className={"custom-style"}
+                  />
+                  <AppStoreButton
+                    url={"https://apps.apple.com/lu/app/cubbicles/id6749823695"}
+                    theme={`${state.darkmode ? "dark" : "light"}`}
+                    className={"custom-style"}
+                  />
+                </>
+              ) : (
+                <button
+                  className="downloadBtn"
+                  onClick={() => {
+                    if (externalLink) {
+                      window.open(
+                        externalLink,
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
+                    } else if (onClick) {
+                      onClick();
+                    }
+                  }}
+                >
+                  {cta}
+                </button>
+              )}
+            </>
           )}
         </div>
       </section>

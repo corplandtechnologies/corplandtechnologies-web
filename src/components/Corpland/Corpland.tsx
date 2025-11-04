@@ -87,16 +87,16 @@ export default function Corpland() {
 
       <IntroCards
         title="The All In One Business Kit!"
-        description="Corpland as we know it has an aim and one aim only. We equip you with
+        description="Buy & Sell From Anyone, Anywhere at Anytime. We equip you with
           everything you need to name, start, brand and market your business or
-          professional self. All in one place, all in one go!"
+          personal brand. All in one place, all in one go!"
         firstCardCount="21,500"
         firstCardLabel="Active Customers"
         secondCardCount="4.9"
         secondCardLabel="User Satisfaction"
         thirdCardCount="12,400"
         thirdCardLabel="Winning Sellers"
-        isCorpland
+        appName="corpland"
       />
       {/* <Showcase /> */}
       {/* <EndCards /> */}
