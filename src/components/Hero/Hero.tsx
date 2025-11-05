@@ -67,7 +67,7 @@ export default function Hero() {
       </motion.h4>
 
       <motion.button
-        onClick={(e) => scroll("corpland-constructs")}
+        onClick={(e) => scroll("constructs")}
         onMouseDown={playAudio}
         onMouseUp={playAudio}
         initial={{ opacity: 0, y: 140 }}
