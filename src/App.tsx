@@ -30,6 +30,7 @@ import playAudio from "./utils/helpers/playAudio";
 import Corpland from "./components/Corpland/Corpland";
 import CorplandConstructs from "./components/CorplandConstructs/CorplandConstructs";
 import Cubbicles from "./components/Cubbicles/Cubbicles";
+import Constructs from "./components/Constructs/Constructs";
 
 // Create store (redux naming convention)
 export const store = createContext<any>(null);
@@ -60,6 +61,7 @@ function App() {
         <ContextMenu />
         <Hero />
         <Manifest />
+        <Constructs />
         <Corpland />
         <Cubbicles />
         {/* <CorplandConstructs /> */}
