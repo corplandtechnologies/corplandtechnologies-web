@@ -5,7 +5,7 @@ const reducer = (state = sampleStore, action: any) => {
     case "language/SET":
       let returnedState: any;
       state.language === "english"
-        ? (returnedState = { ...state, language: "german" })
+        ? (returnedState = { ...state, language: "english" })
         : (returnedState = { ...state, language: "english" });
       return returnedState;
     case "language/INIT":

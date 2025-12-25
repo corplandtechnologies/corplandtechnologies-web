@@ -55,7 +55,6 @@ function App() {
         onMouseUp={(e) => setCursorAppearance(e)}
         onContextMenu={(e) => toggleContextMenu(e)}
       >
-        <Snowfall />
         <Toaster />
         <Cursor />
         <NavBar />
@@ -73,6 +72,7 @@ function App() {
         {/* <Resume /> */}
         <Contact />
       </div>
+      <Snowfall/>
     </StoreProvider>
   );
 }
