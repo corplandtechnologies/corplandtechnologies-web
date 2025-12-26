@@ -31,7 +31,6 @@ import Corpland from "./components/Corpland/Corpland";
 import CorplandConstructs from "./components/CorplandConstructs/CorplandConstructs";
 import Cubbicles from "./components/Cubbicles/Cubbicles";
 import Constructs from "./components/Constructs/Constructs";
-import Snowfall from "react-snowfall";
 
 // Create store (redux naming convention)
 export const store = createContext<any>(null);
@@ -72,7 +71,6 @@ function App() {
         {/* <Resume /> */}
         <Contact />
       </div>
-      <Snowfall/>
     </StoreProvider>
   );
 }
