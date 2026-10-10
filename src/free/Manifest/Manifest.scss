@@ -1,0 +1,19 @@
+.manifest__statement {
+  max-width: 17ch;
+  margin-bottom: clamp(48px, 7vw, 88px);
+  font-size: var(--text-statement);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.manifest__close {
+  margin-top: clamp(40px, 6vw, 64px);
+  font-size: var(--text-title-lg);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: var(--heading);
+}

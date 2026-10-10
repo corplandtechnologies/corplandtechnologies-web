@@ -1,76 +1,87 @@
-import React, {
-  useReducer,
-  createContext,
-  useEffect,
-  useContext,
-  useRef,
-} from "react";
+import React, { useReducer, createContext, useContext, useEffect } from "react";
 import "./App.scss";
-import NavBar from "./components/NavBar/NavBar";
-import Hero from "./components/Hero/Hero";
-import LanguageSwitch from "./components/LanguageSwitch/LanguageSwitch";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import setCursorLocation from "./utils/helpers/setCursorLocation";
 import Cursor from "./components/Cursor/Cursor";
 import setCursorAppearance from "./utils/helpers/setCursorAppearance";
 import reducer from "./reducers/reducer";
 import sampleStore from "./utils/samples/sampleStore";
-import Manifest from "./components/Manifest/Manifest";
-import AboutMe from "./components/AboutMe/AboutMe";
-import Projects from "./components/Projects/Projects";
-import Resume from "./components/Resume/Resume";
-import Skills from "./components/Skills/Skills";
-import ContextMenu from "./components/ContextMenu/ContextMenu";
 import toggleContextMenu from "./utils/helpers/toggleContextMenu";
 import hideContextMenu from "./utils/helpers/hideContextMenu";
-import toast, { Toaster } from "react-hot-toast";
-import Contact from "./components/Contact/Contact";
-import ThemeButton from "./components/ThemeButton/ThemeButton";
-import clickSound from "./assets/audio/click.mp3";
-import playAudio from "./utils/helpers/playAudio";
-import Corpland from "./components/Corpland/Corpland";
-import CorplandConstructs from "./components/CorplandConstructs/CorplandConstructs";
-import Cubbicles from "./components/Cubbicles/Cubbicles";
-import Constructs from "./components/Constructs/Constructs";
+import { Toaster } from "react-hot-toast";
+import Footer from "./components/Footer/Footer";
+import PaymentReturn from "./components/PaymentReturn/PaymentReturn";
+import Home from "./pages/Home/Home";
+import Free from "./pages/Free/Free";
+import { company } from "./data/site";
+import { EASE_OUT, page } from "./utils/motion";
 
-// Create store (redux naming convention)
 export const store = createContext<any>(null);
 
-// Create store provider to wrap subcomponents in
 const StoreProvider = ({ children }: any) => (
   <store.Provider value={useReducer(reducer, sampleStore)}>
     {children}
   </store.Provider>
 );
 
+function Shell() {
+  const [state] = useContext(store);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = state.darkmode ? "dark" : "light";
+  }, [state.darkmode]);
+
+  return (
+    <div
+      className="App"
+      onClick={isHome ? hideContextMenu : undefined}
+      onMouseMove={(e) => setCursorLocation(e)}
+      onScroll={(e) => setCursorLocation(e)}
+      onMouseDown={(e) => setCursorAppearance(e)}
+      onMouseUp={(e) => setCursorAppearance(e)}
+      onContextMenu={isHome ? (e) => toggleContextMenu(e) : undefined}
+    >
+      <Toaster />
+      <Cursor />
+      {!isHome && <PaymentReturn />}
+      <AnimatePresence
+        mode="wait"
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        <motion.div
+          key={location.pathname}
+          className="App__page"
+          variants={page}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.28, ease: EASE_OUT }}
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path={company.freePath} element={<Free />} />
+            <Route
+              path="/freemvp"
+              element={<Navigate to={company.freePath} replace />}
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          {!isHome && <Footer />}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function App() {
   return (
     <StoreProvider>
-      <div
-        className="App"
-        onClick={hideContextMenu}
-        onMouseMove={(e) => setCursorLocation(e)}
-        onScroll={(e) => setCursorLocation(e)}
-        onMouseDown={(e) => setCursorAppearance(e)}
-        onMouseUp={(e) => setCursorAppearance(e)}
-        onContextMenu={(e) => toggleContextMenu(e)}
-      >
-        <Toaster />
-        <Cursor />
-        <NavBar />
-        <ThemeButton />
-        <ContextMenu />
-        <Hero />
-        <Manifest />
-        <Constructs />
-        <Corpland />
-        <Cubbicles />
-        {/* <CorplandConstructs /> */}
-        {/* <AboutMe /> */}
-        {/* <Projects /> */}
-        {/* <Skills /> */}
-        {/* <Resume /> */}
-        <Contact />
-      </div>
+      <MotionConfig reducedMotion="user">
+        <Shell />
+      </MotionConfig>
     </StoreProvider>
   );
 }

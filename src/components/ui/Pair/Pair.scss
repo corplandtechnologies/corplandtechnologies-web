@@ -1,0 +1,11 @@
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 6vw, 88px);
+  padding-top: 36px;
+  border-top: 1px solid var(--hairline-strong);
+
+  @media screen and (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}

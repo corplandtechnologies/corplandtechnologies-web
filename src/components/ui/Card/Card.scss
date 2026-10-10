@@ -1,0 +1,13 @@
+.card {
+  box-sizing: border-box;
+  background-color: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  padding: clamp(26px, 4vw, 48px);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.card--tile {
+  border-radius: var(--radius-tile);
+  padding: 24px;
+}

@@ -1,6 +1,7 @@
 const scroll = (section: string) => {
-  let target = document.getElementById(section);
-  target?.scrollIntoView({ behavior: "smooth" });
+  const target = document.getElementById(section);
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target?.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
 };
 
 export default scroll;
