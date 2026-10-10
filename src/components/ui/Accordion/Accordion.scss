@@ -1,0 +1,49 @@
+.accordion {
+  border-top: 1px solid var(--hairline);
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 26px 0;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: var(--text-title-fluid);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  text-align: left;
+  color: var(--heading);
+  transition: color 0.2s var(--ease-out);
+
+  &:hover {
+    color: var(--link);
+  }
+}
+
+.accordion__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--muted);
+}
+
+.accordion__panel {
+  overflow: hidden;
+}
+
+.accordion__answer {
+  max-width: 62ch;
+  padding-bottom: 28px;
+  font-size: var(--text-body);
+  line-height: 1.6;
+  letter-spacing: -0.012em;
+  color: var(--body);
+}

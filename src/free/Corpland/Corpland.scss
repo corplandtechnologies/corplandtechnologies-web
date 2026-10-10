@@ -1,0 +1,7 @@
+.work__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin: clamp(32px, 5vw, 48px) 0 clamp(56px, 8vw, 96px);
+}

@@ -1,0 +1,15 @@
+.fit__paid {
+  max-width: 54ch;
+  margin-top: clamp(40px, 6vw, 64px);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+  color: var(--body);
+
+  a {
+    font-weight: 500;
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}

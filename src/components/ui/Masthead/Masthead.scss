@@ -1,0 +1,113 @@
+.masthead {
+  --masthead-peek: 0px;
+  width: 100%;
+  background-color: var(--bg-1);
+  font-family: var(--font);
+  transition: background-color 0.2s;
+}
+
+.masthead--follow {
+  --masthead-peek: clamp(72px, 11vh, 112px);
+  --masthead-height: calc(100svh - var(--masthead-peek));
+  padding-bottom: var(--section-space);
+  background-image: radial-gradient(
+    58% calc(var(--masthead-height) * 0.46) at 50%
+      calc(var(--masthead-height) * 1.12),
+    rgba(0, 100, 255, 0.32) 0%,
+    rgba(0, 100, 255, 0.1) 46%,
+    rgba(0, 100, 255, 0) 74%
+  );
+  background-repeat: no-repeat;
+
+  .masthead__stage {
+    background-image: none;
+  }
+}
+
+.masthead__stage {
+  min-height: calc(100vh - var(--masthead-peek));
+  min-height: calc(100svh - var(--masthead-peek));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(104px, 14vh, 132px) var(--gutter) clamp(40px, 7vh, 72px);
+  background-image: radial-gradient(
+    58% 46% at 50% 112%,
+    rgba(0, 100, 255, 0.32) 0%,
+    rgba(0, 100, 255, 0.1) 46%,
+    rgba(0, 100, 255, 0) 74%
+  );
+  text-align: center;
+}
+
+.masthead__inner {
+  width: 100%;
+  max-width: var(--container);
+}
+
+.masthead__title {
+  max-width: 13ch;
+  margin: 0 auto;
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--heading);
+  text-wrap: balance;
+}
+
+.masthead__title--wide {
+  max-width: 17ch;
+}
+
+.masthead__lede {
+  max-width: 44ch;
+  margin: 28px auto 0;
+  font-size: var(--text-lede);
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--body);
+  text-wrap: pretty;
+}
+
+.masthead__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.masthead__note {
+  margin-top: 22px;
+  font-size: var(--text-label);
+  line-height: 1.5;
+  color: var(--muted);
+
+  a {
+    font-weight: 500;
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    white-space: nowrap;
+  }
+}
+
+.masthead__follow {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+@media screen and (max-width: 520px) {
+  .masthead__stage {
+    padding-top: 112px;
+  }
+
+  .masthead__actions {
+    flex-direction: column;
+  }
+}

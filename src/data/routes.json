@@ -1,0 +1,16 @@
+{
+  "/": {
+    "title": "Corpland Technologies | Your Professional Toolbox",
+    "description": "Corpland Technologies offers cutting-edge solutions to empower businesses with the tools needed to name, start, scale, and automate their ventures effectively. Explore our services today to elevate your business to new heights.",
+    "ogTitle": "Corpland Technologies | Empowering Businesses with Innovation",
+    "ogDescription": "Discover Corpland Technologies for comprehensive tools to propel your business forward. From inception to expansion, we have got you covered.",
+    "image": "https://www.corplandtechnologies.com/CORPLAND5.png"
+  },
+  "/free": {
+    "title": "Our first ten clients pay nothing | Corpland Technologies",
+    "description": "A four week MVP build, or four weeks looking after the app you already have, free for our first ten clients. You own the code. We get a case study. Apply for a spot.",
+    "ogTitle": "Our first ten clients pay nothing | Corpland Technologies",
+    "ogDescription": "A four week MVP build, or four weeks looking after the app you already have. You own every line of code and pay only third party costs. We get a case study. Ten spots.",
+    "image": "https://www.corplandtechnologies.com/og-free.png"
+  }
+}
